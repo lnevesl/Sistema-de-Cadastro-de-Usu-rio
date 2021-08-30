@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import Entidade.Lancamento;
 
 
 public class Menu{
@@ -80,12 +81,16 @@ public static void main () {
 		 int idade; 
 		 double altura; 
 		 String email;
+		 double valor;
+		 String lancamento;
 		
         // Vamos executar um comando de DML para inserir um registro na tabela de
         // Usuário
         String sql = "INSERT INTO USUARIO (NOME, IDADE, ALTURA, EMAIL) VALUES (?, ?, ?, ?)";
+        String sql1 = "INSERT INTO LANCAMENTO (DESCRICAO, VALOR) VALUES (?, ?)";
         // 1
         PreparedStatement ps = conexao.prepareStatement(sql);
+        PreparedStatement ps1 = conexao.prepareStatement(sql1);
 //       
         // Prepara a instrução SQL
        
@@ -100,7 +105,12 @@ public static void main () {
 		ps.setDouble(3, altura);
 		System.out.print("Email:  ");
 		ps.setString(4, email);
-	
+		System.out.print("---------------------------------- ");
+		System.out.print("----- Lançamento de Produto -------");
+		System.out.print("Produto: ");
+		ps1.setString(1, lancamento);
+		System.out.print("Valor: ");
+		ps1.setDouble(2, valor);
 		System.out.print("\nCadastro realizado com sucesso!  ");
 		
 		  // Executa a instrução SQL
