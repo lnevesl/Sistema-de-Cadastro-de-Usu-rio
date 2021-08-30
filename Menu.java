@@ -12,21 +12,23 @@ import java.util.List;
 
 public class Menu{
 
+//conectar com banco de dados.
 	
-	@SuppressWarnings("unused")
+	//@SuppressWarnings("unused")
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
 	    String USUARIO = "system";
 	    String SENHA = "123";
 	    String HOST = "localhost"; //MUDAR PARA: localhost
 
-	    Class.forName("oracle.jdbc.driver.OracleDriver");
+	   Class.forName("oracle.jdbc.driver.OracleDriver");
 	    Connection conexao = DriverManager.getConnection("jdbc:oracle:thin:@" + HOST + ":1521:xe", USUARIO, SENHA);
 
 	    System.out.println("Conectado com sucesso!");
-
-
-   
+	}
+	    
+	    
+	    public static void menu() {
 		System.out.println("==========================================================");
 		System.out.println("================  SISTEMA DE CADASTRO    =================");
 		System.out.println("----------------------------------------------------------");
@@ -35,10 +37,10 @@ public class Menu{
 		System.out.println(" 2 - Pesquisar  ");
 		System.out.println(" 3 - Sair  ");
 		System.out.println(" --------------------  Digite uma das Opções -------------");
+	    
+	    
     
-	}
-    
-public static void main() {
+public static void main () {
 		
 		String opcao = "0";
 
@@ -62,12 +64,22 @@ public static void main() {
 			default:
 				System.out.println("Opção inválida, tente novamente.");
 			}
+
+			menu();
+			opcao = ler.nextLine();
+}
+		
+
 	
 }
-}
 
-	private static void cadastrar(Scanner ler, Connection conexao, String nome, int idade, double altura, String email) {
 
+	private static void cadastrar(Scanner ler) {
+		 Connection conexao; 
+		 String nome; 
+		 int idade; 
+		 double altura; 
+		 String email;
 		
         // Vamos executar um comando de DML para inserir um registro na tabela de
         // Usuário
@@ -97,8 +109,8 @@ public static void main() {
         conexao.close(); // liberando a conexão
 
         } 
-
-	public void Listar(Scanner ler, Connection conexao){  
+	private static void Listar(Scanner ler) {
+	Connection conexao;
 	   
 			    String sql = "SELECT * FROM USUARIO";
 			    // 1
@@ -133,10 +145,14 @@ public static void main() {
 			    }
 			     
 			    menu();
-				ler.close();
+				
 	 
 		
 	}
+	private static void sair(Scanner ler) {
+	// TODO Auto-generated method stub
+	
+}
 }
   
    
