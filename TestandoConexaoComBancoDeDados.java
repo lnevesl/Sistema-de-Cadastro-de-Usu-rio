@@ -1,21 +1,12 @@
 package br.com.fuctura;
 
-import java.sql.Connection;
-//import java.sql.DriverManager;
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 public class TestandoConexaoComBancoDeDados {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-
-		FabricaDeConexao fabricaDeConexao = new FabricaDeConexao();
-
-		Connection conexao = fabricaDeConexao.obterConexao();
 
 		GerenciadorUsuario gerenciadorUsuario = new GerenciadorUsuario();
 		GerenciadorLancamento gerenciadorLancamento = new GerenciadorLancamento();
@@ -25,7 +16,7 @@ public class TestandoConexaoComBancoDeDados {
 
 		String opcaoEscolhida = "";
 
-		while (!opcaoEscolhida.equals("5")) {
+		while (!opcaoEscolhida.equals("3")) {
 
 			menuUser.exibirCabecalho();
 
@@ -38,13 +29,13 @@ public class TestandoConexaoComBancoDeDados {
 				opcaoEscolhida = JOptionPane.showInputDialog("Digite a opção escolhida: ");
 				if (opcaoEscolhida.equals("1")) {
 					Usuario user = menuUser.cadastrar();
-					gerenciadorUsuario.inserir(conexao, user, user);
+					gerenciadorUsuario.inserir(user, user);
 				} else if (opcaoEscolhida.equals("2")) {
 					String nome = JOptionPane.showInputDialog("Digite o do lançamento: ");
 					String valor = JOptionPane.showInputDialog("Digite o valor do lançamento: ");
 
 					Lancamento lancamento = new Lancamento(nome, Double.valueOf(valor));
-					gerenciadorLancamento.inserir(conexao, lancamento);
+					gerenciadorLancamento.inserir(lancamento);
 				}
 			} else if (opcaoEscolhida.equals("3")) {
 				
@@ -53,7 +44,7 @@ public class TestandoConexaoComBancoDeDados {
 
 				if (opcaoEscolhida.equals("1")) {
 					Tipo user = menuUser.cadastrarTipo();
-					gerenciadorTipo.inserir(conexao, user);
+					gerenciadorTipo.inserir(user);
 				} else if (opcaoEscolhida.equals("2")) {
 					JOptionPane.showInputDialog("Editar");
 					// cirar editar				}
@@ -61,11 +52,7 @@ public class TestandoConexaoComBancoDeDados {
 				JOptionPane.showInputDialog("Excluir:");
 				// cirar excluir
 			}
-
-//					
-//		
 		}
-		conexao.close();
 	}
 
 }

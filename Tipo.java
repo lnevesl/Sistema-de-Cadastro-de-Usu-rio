@@ -4,11 +4,9 @@ public class Tipo {
 	private int id;
 	private String nome; //Despesa e Receita
 	
-	public Tipo(int id, String nome) {
+	public Tipo(String nome) {
 		super();
-		this.id = id;
 		this.nome = nome;
-		
 	}
 
 	public int getId() {

@@ -6,17 +6,25 @@ import java.sql.SQLException;
 
 public class GerenciadorTipo {
 
-	public void inserir(Connection conexao, Tipo tipo) throws SQLException {
-		String sql = "INSERT INTO TIPO (ID, NOME) VALUES(?, ?)";
+	public void inserir(Tipo tipo) throws SQLException {
+		FabricaDeConexao fabricaDeConexao = new FabricaDeConexao();
+		Connection conexao = fabricaDeConexao.obterConexao();
+		
+		try {
+			String sql = "INSERT INTO TIPO (NOME) VALUES(?)";
 
-		PreparedStatement pst = conexao.prepareStatement(sql);
+			PreparedStatement pst = conexao.prepareStatement(sql);
+			pst.setString(1, tipo.getNome());
+			pst.execute();
 
-		pst.setInt(1, tipo.getId());
-		pst.setString(2, tipo.getNome());
-
-		pst.execute();
-
-		System.out.println("Dados inseridos com sucesso!");
+			System.out.println("Dados inseridos com sucesso!");
+		} catch (SQLException e) {
+			System.out.println("Erro executando comando no banco: " + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			conexao.close();
+		}
 	}
 
 	public void alterar() {

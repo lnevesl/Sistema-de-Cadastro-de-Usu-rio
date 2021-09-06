@@ -8,7 +8,7 @@ public class MenuUsuario {
 		System.out.println("***Menu***");
 		System.out.println("1 - Cadastrar ");
 		System.out.println("2 - Listar Todos ");
-		System.out.println("5 - Sair ");
+		System.out.println("3 - Sair ");
 	}
 
 	public void exibirSubmenu() {
@@ -19,7 +19,7 @@ public class MenuUsuario {
 	}
 
 	public Usuario cadastrar() {
-		// pedir pra o usuÃ¡rio digitar os dados
+		// pedir pra o usuário digitar os dados
 		String nome = JOptionPane.showInputDialog("Digite seu nome:");
 		String idade = JOptionPane.showInputDialog("Digite sua idade:");
 		String altura = JOptionPane.showInputDialog("Digite sua altura:");
@@ -38,13 +38,29 @@ public class MenuUsuario {
 	}
 	
 	public Tipo cadastrarTipo() {
-		// pedir pra o usuÃ¡rio digitar os dados
-		String id = JOptionPane.showInputDialog("Digite o ID: ");
+		// pedir pra o usuário digitar os dados
 		String nome = JOptionPane.showInputDialog("Digite Despesa ou Receita: ");
 
 
-		Tipo user = new Tipo( Integer.valueOf(id), nome);
+		Tipo user = new Tipo(nome);
 		return user;
-	}	
+	}
+	
+	
+	
+//	public Tipo CadastrarNome() {
+//		// pedir pra o usu�rio digitar os dados
+//		//@SuppressWarnings("unused")
+//		String nome = JOptionPane.showInputDialog("Digite Despesa ou Receita: ");
+//		int id = 
+//
+//		Tipo userTipo = new Tipo(Integer.valueOf(id), nome);
+//		
+//		
+//		return userTipo;
+//	}
+	
+	
+	
 	
 }
