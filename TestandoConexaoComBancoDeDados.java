@@ -10,17 +10,20 @@ public class TestandoConexaoComBancoDeDados {
 
 		GerenciadorUsuario gerenciadorUsuario = new GerenciadorUsuario();
 		GerenciadorLancamento gerenciadorLancamento = new GerenciadorLancamento();
-		GerenciadorTipo gerenciadorTipo = new GerenciadorTipo();
+		//GerenciadorTipo gerenciadorTipo = new GerenciadorTipo();
 		MenuUsuario menuUser = new MenuUsuario();
+	
 		// exibirSubMenuTipo menuUser1 = exibirSubMenuTipo();
 
 		String opcaoEscolhida = "";
 
-		while (!opcaoEscolhida.equals("3")) {
+		while (!opcaoEscolhida.equals("5")) {
 
 			menuUser.exibirCabecalho();
-
+			
+			//menuUser.exibirSubmenu();
 			opcaoEscolhida = JOptionPane.showInputDialog("Digite a opção escolhida: ");
+		
 
 			if (opcaoEscolhida.equals("1")) {
 
@@ -29,6 +32,7 @@ public class TestandoConexaoComBancoDeDados {
 				opcaoEscolhida = JOptionPane.showInputDialog("Digite a opção escolhida: ");
 				if (opcaoEscolhida.equals("1")) {
 					Usuario user = menuUser.cadastrar();
+					
 					gerenciadorUsuario.inserir(user, user);
 				} else if (opcaoEscolhida.equals("2")) {
 					String nome = JOptionPane.showInputDialog("Digite o do lançamento: ");
@@ -37,23 +41,29 @@ public class TestandoConexaoComBancoDeDados {
 					Lancamento lancamento = new Lancamento(nome, Double.valueOf(valor));
 					gerenciadorLancamento.inserir(lancamento);
 				}
-			} else if (opcaoEscolhida.equals("3")) {
-				
+	} if (opcaoEscolhida.equals("3")) {
+//				
 				menuUser.exibirSubMenuTipo();
-				opcaoEscolhida = JOptionPane.showInputDialog("Digite a opção escolhida: ");
-
+			opcaoEscolhida = JOptionPane.showInputDialog("Digite a opção escolhida: ");
 				if (opcaoEscolhida.equals("1")) {
 					Tipo user = menuUser.cadastrarTipo();
-					gerenciadorTipo.inserir(user);
+				GerenciadorTipo.inserir(user);
 				} else if (opcaoEscolhida.equals("2")) {
 					JOptionPane.showInputDialog("Editar");
 					// cirar editar				}
-			} else if (opcaoEscolhida.equals("3")) {
+			} else if (opcaoEscolhida.equals("4")) {
 				JOptionPane.showInputDialog("Excluir:");
-				// cirar excluir
+				 //cirar excluir
+			}
 			}
 		}
 	}
+}
 
-}
-}
+
+
+
+	
+
+
+

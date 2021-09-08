@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class GerenciadorTipo {
 
-	public void inserir(Tipo tipo) throws SQLException {
+	public static void inserir(Tipo tipo) throws SQLException {
 		FabricaDeConexao fabricaDeConexao = new FabricaDeConexao();
 		Connection conexao = fabricaDeConexao.obterConexao();
 		

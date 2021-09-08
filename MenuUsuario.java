@@ -8,8 +8,13 @@ public class MenuUsuario {
 		System.out.println("***Menu***");
 		System.out.println("1 - Cadastrar ");
 		System.out.println("2 - Listar Todos ");
-		System.out.println("3 - Sair ");
+		System.out.println("5 - Sair ");
 	}
+	
+	public void listarTodos() {
+		
+	}
+	
 
 	public void exibirSubmenu() {
 		System.out.println("***Menu***");
@@ -34,13 +39,12 @@ public class MenuUsuario {
 		System.out.println("***Menu***");
 		System.out.println("1 - Cadastrar ");
 		System.out.println("2 - Editar ");
-		System.out.println("3 - Excluir ");
+		System.out.println("4 - Excluir ");
 	}
 	
 	public Tipo cadastrarTipo() {
 		// pedir pra o usuário digitar os dados
 		String nome = JOptionPane.showInputDialog("Digite Despesa ou Receita: ");
-
 
 		Tipo user = new Tipo(nome);
 		return user;
